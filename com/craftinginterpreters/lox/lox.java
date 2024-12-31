@@ -23,12 +23,12 @@ public class Lox {
     }
 
     private static void runFile(String path) throws IOException {
-        byte[] bytes = Files.readAllBytes(Path.get(path));
+        byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
         if (hadError) System.exit(65);
     }
 
-    private static runPrompt() throws IOException {
+    private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
 
@@ -39,6 +39,7 @@ public class Lox {
             run(line);
             hadError = false;
         }
+    }
 
     private static void run(String source) {
         Scanner scanner = new Scanner(source);
@@ -60,5 +61,4 @@ public class Lox {
 
     
 
-    }
 }
