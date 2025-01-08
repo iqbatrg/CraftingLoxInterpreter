@@ -15,7 +15,7 @@ public class GenerateAst {
         defineAst(outputDir, "Expr", Arrays.asList(
             "Binary   : Expr left, Token operator, Expr right",
             "Grouping : Expr expression",
-            "Literal  : Object Value",
+            "Literal  : Object value",
             "Unary    : Token operator, Expr right"
             ));
     }
@@ -41,7 +41,7 @@ public class GenerateAst {
             }
 
             writer.println();
-            writer.println("  abstract <R> accept(Visitor<R> visitor)");
+            writer.println("  abstract <R> R accept(Visitor<R> visitor);");
 
             writer.println("}");
             writer.close();

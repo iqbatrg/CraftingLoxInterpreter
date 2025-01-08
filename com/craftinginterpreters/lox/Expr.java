@@ -38,8 +38,8 @@ abstract class Expr{
     final Expr expression;
    }
   static class Literal extends Expr {
-    Literal(Object Value) {
-    this.Value = Value;
+    Literal(Object value) {
+    this.value = value;
     }
 
     @Override
@@ -47,7 +47,7 @@ abstract class Expr{
       return visitor.visitLiteralExpr(this);
     }
 
-    final Object Value;
+    final Object value;
    }
   static class Unary extends Expr {
     Unary(Token operator, Expr right) {
@@ -64,5 +64,5 @@ abstract class Expr{
     final Expr right;
    }
 
-  abstract <R> accept(Visitor<R> visitor)
+  abstract <R> R accept(Visitor<R> visitor);
 }
