@@ -40,7 +40,11 @@ class Parser {
                 Token name = ((Expr.Variable)expr).name;
                 return new Expr.Assign(name, value);
             }
+
+            error(equals, "Invalid assignment targer.");
         }
+
+        return expr;
     }
 
 
